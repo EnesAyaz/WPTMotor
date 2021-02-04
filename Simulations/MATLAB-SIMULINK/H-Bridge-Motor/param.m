@@ -1,0 +1,49 @@
+%% Simulation parameters
+fsw=90e3;
+SampleTime=(1/fsw)/360;
+Tfinal=0.6;
+phasePWM=180;
+
+%% DC SUPPLY
+VDC=200;
+LSource= 1e-6;
+RSource= 0.1;
+
+%% Full-Bridge Parameters
+C_DCA=1e-6;
+C_DCB=1e-6;
+ESRA=1e-7;
+ESRB=1e-7;
+%% Parasitics
+RA_parasitic=1e-3;
+LA_parasitic=1e-8;
+RB_parasitic=1e-3;
+LB_parasitic=1e-8;
+RAB_parasitic=1e-3;
+LAB_parasitic=1e-8;
+RA_mid_parasitic=1e-3;
+LA_mid_parasitic=1e-8;
+RB_mid_parasitic=1e-3;
+LB_mid_parasitic=1e-8;
+
+%% MOTOR 
+Rmotor=2;
+Lmotor=1e-3;
+Kf=0.1157;
+J=0.01;
+Bm=0;
+Tf=0;
+w0=0;
+%%  Load Torque
+TL=10;
+
+%% WPT
+fr=65e3;
+wr=fr*2*pi;
+Lp=205e-6;
+Ls=51e-6;
+M=41e-6;
+RL=8.44;
+Cs=115e-9;
+Cp=28.5e-9;
+
