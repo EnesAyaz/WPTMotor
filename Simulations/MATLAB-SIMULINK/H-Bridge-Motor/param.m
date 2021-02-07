@@ -1,11 +1,11 @@
 %% Simulation parameters
-fsw=90e3;
+fsw=80e3;
 SampleTime=(1/fsw)/360;
-Tfinal=0.6;
+Tfinal=0.5;
 phasePWM=180;
 
 %% DC SUPPLY
-VDC=200;
+VDC=100;
 LSource= 1e-6;
 RSource= 0.1;
 
@@ -25,17 +25,16 @@ RA_mid_parasitic=1e-3;
 LA_mid_parasitic=1e-8;
 RB_mid_parasitic=1e-3;
 LB_mid_parasitic=1e-8;
-
 %% MOTOR 
 Rmotor=2;
 Lmotor=1e-3;
 Kf=0.1157;
-J=0.01;
+J=0.001;
 Bm=0;
 Tf=0;
 w0=0;
 %%  Load Torque
-TL=10;
+TL=5;
 
 %% WPT
 fr=65e3;
