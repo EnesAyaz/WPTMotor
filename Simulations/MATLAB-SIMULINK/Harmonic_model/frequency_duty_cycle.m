@@ -19,7 +19,8 @@ k=1;
 Vin=4*D.*(sin(k*pi*D)./(k*pi*D)).*exp(-1i*k*pi.*D);
 Vin=abs(Vin);
 % Vin=1
-f=logspace(4,6,10000);
+% f=logspace(4,6,10000);
+f=logspace(4.6,5.2,10000);
 % f=logspace(0,6,10000);
 w=2*pi*f;
 % Parameters
@@ -55,12 +56,30 @@ end
 % D=0.5:0.005:0.90;
 D=0:0.005:1;
 [x,y] = meshgrid(f/1000,D);
-mesh(y,x,Gain)
+% mesh(y,x,Gain)
+
+figure1=figure();
+colormap(jet);
+
+% Create axes
+axes1 = axes('Parent',figure1);
+hold(axes1,'on');
+% Create contour
+contour(y,x,Gain,'LineWidth',4)
+
 set(gca,'YScale','log')
-ylabel('Frequency(kHz)');
-xlabel('Duty Cycle')
-zlabel('Voltage Gain');
-view(0,90)
+% Create labels and 
+ylabel('Frequency(kHz)','FontSize',20);
+xlabel('Duty Cycle','FontSize',20)
+title('Voltage Gain','FontSize',20);
+%
+box(axes1,'on');
+axis(axes1,'tight');
+hold(axes1,'off');
+% Set the remaining axes properties
+set(axes1,'BoxStyle','full','Layer','top','YMinorTick','on','YScale','log');
+% Create colorbar
+colorbar(axes1);
 
 %%
  
