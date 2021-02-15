@@ -136,6 +136,9 @@ else
     X_angle=angle(Z4)*180/pi;
 end
 
+figure();
+plot(f,X_mag,'Linewidth',2);
+
 % figure;
 % hold on;
 % yyaxis left
