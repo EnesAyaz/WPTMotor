@@ -38,6 +38,12 @@ legend('simulation','experiment','FontSize',15,'box','off', ...
      ,'Position',[0.5 0.3 0.3 0.1]);
 grid on;
 
+error=((experiment_gain-simulation_gain)./simulation_gain)*100;
+figure();
+plot(frequency,error,'LineWidth',2,'Color','r');
+ylabel(' $\Delta $Gain','Interpreter','Latex','FontSize',15);
+xlabel('Frequency(kHz)','Interpreter','Latex','FontSize',15)
+grid on;
 
 %%
 
@@ -74,4 +80,12 @@ xlabel('Duty Cycle','Interpreter','Latex','FontSize',15)
 legend('simulation','experiment','FontSize',15,'box','off', ...
     'Interpreter','Latex' ...
      ,'Position',[0.4 0.2 0.3 0.1]);
+grid on;
+
+
+error=((experiment_gain-simulation_gain)./simulation_gain)*100;
+figure();
+plot(duty,error,'LineWidth',2,'Color','r');
+ylabel(' $\Delta $Gain','Interpreter','Latex','FontSize',15);
+xlabel('Frequency(kHz)','Interpreter','Latex','FontSize',15)
 grid on;
