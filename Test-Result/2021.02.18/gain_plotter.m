@@ -20,7 +20,7 @@ IPTfreq = readtable("D:\Github\WPT-Motor\Test-Result\2021.02.18\IPT-freq.xlsx", 
 %Clear temporary variables
 clear opts
 %%
-RL=8.554;
+RL=8.44;
 frequency=IPTfreq.FrequencykHz(2:end);
 simulation_gain=IPTfreq.SimulationGain(2:end);
 seconder_current=IPTfreq.SekonderAkm(2:end)/1000;
@@ -64,7 +64,7 @@ IPTDutyCycle = readtable("D:\Github\WPT-Motor\Test-Result\2021.02.18\IPT-Duty-Cy
 %Clear temporary variables
 clear opts
 %%
-RL=8.554;
+RL=8.44;
 duty=IPTDutyCycle.DutyCycle(2:end-1);
 simulation_gain=IPTDutyCycle.Simulation(2:end-1)/sqrt(2);
 seconder_current=IPTDutyCycle.SeconderAkm(2:end-1)/1000;
