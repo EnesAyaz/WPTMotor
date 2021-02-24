@@ -14,7 +14,7 @@ Gain=Gain';
 [x,y] = meshgrid(frequency,duty);
 
 figure1=figure();
-set(gcf,'Position',  [100, 100, 400, 500]);
+set(gcf,'Position',  [100, 100, 500, 400]);
 colormap(jet);
 
 % Create axes
