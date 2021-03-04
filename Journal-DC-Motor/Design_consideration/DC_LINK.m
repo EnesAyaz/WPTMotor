@@ -10,7 +10,7 @@ for k=1:10
     
 end
 
-    current=[0,1];
+    current=[5,1];
     convolved=conv(fourier_series,current);
     convolvedTotal2=[convolvedTotal2 ; convolved];
 end

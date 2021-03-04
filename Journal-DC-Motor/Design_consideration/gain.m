@@ -7,18 +7,20 @@ figure2 = figure;
 axes1 = axes('Parent',figure2);
 hold(axes1,'on');
 %% FILL INFORMATION BELOW
-Vin=100; %V  (rms) 
-P_o=300; %W   
+Vin=40.8; %V  (rms) 
+P_o=50; %W   
 Qs=2.5; % unitless
 f=65e3; %Hz
 % f=80e3; %Hz
 w=2*pi*f; %rad/sec
 k=0.40; % chosen coupling factor
 % k=0.25; % chosen coupling factor
-Vout=50; %V (rms)
 kc= (1/Qs)*sqrt(1-1/(4*Qs^2));
 % Calculation Series-compensated paralel DC BUS
+Vout= 20.4;
 R_L=(Vout^2)/P_o; %% single module R_L
+% R_L=8.33; %% single module R_L
+% Vout=sqrt(P_o*R_L); %% single module R_
 
 Ip_rms= P_o/Vin; % primary current assuming eff=1
 Is_rms=(P_o/Vout);
@@ -28,7 +30,7 @@ Lp=M^2/(k^2*Ls);  %primary inductance
 Cp=1/(w^2*Lp);  %primary compansation
 Cs=1/(w^2*Ls);  %secondary compansation
 % Analytical model 
-
+[Lp,Ls,M]*1e6
 %
 %   
 %    |-- rp----Cp----Lp'(Lp-M)---|---Ls'(Ls-M)--Cs-|
@@ -69,7 +71,7 @@ Iin_angle= angle(Iin)*180/pi;
 Iin_mag= abs(Iin);
 %
 % figure;
-plot(f,Vo_mag,'Linewidth',2);
+plot(f,Vo_mag/Vin,'Linewidth',2);
 hold on; 
 
 % plot(f,Iin_angle,'Linewidth',2);

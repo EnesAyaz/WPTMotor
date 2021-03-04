@@ -23,29 +23,13 @@ clear opts
 RL=8.44;
 frequency=IPTfreq.FrequencykHz(2:end);
 simulation_gain=IPTfreq.SimulationGain(2:end);
-seconder_current=IPTfreq.SekonderAkm(2:end)/1000;
-seconder_voltage=seconder_current*RL;
-experiment_gain=1.1107*seconder_voltage./IPTfreq.inputVoltaj(2:end);
 
 figure();
 set(gcf,'Position',[100 100 300 300])
 plot(frequency,simulation_gain,'LineWidth',2,'Color','r');
-hold on;
-plot(frequency,experiment_gain,'x','LineWidth',5,'Color','b');
-ylabel('Gain','Interpreter','Latex','FontSize',12,'FontName','Times New Roman');
-xlabel('Frequency(kHz)','Interpreter','Latex','FontName','Times New Roman','FontSize',12)
-legend('simulation','experiment','FontName','Times New Roman',...
-    'FontSize',12,'box','off', ...
-    'Interpreter','Latex' ...
-     ,'Position',[0.5 0.3 0.3 0.1]);
+ylabel('Gain($ \frac{Vout}{Vin}$)','Interpreter','Latex','FontSize',12,'FontName','Times New Roman');
+xlabel('Frequency(kHz)','Interpreter','Latex','FontSize',12,'FontName','Times New Roman')
 grid on;
-
-% error=((experiment_gain-simulation_gain)./simulation_gain)*100;
-% figure();
-% plot(frequency,error,'LineWidth',2,'Color','r');
-% ylabel(' $\Delta $Gain','Interpreter','Latex','FontSize',15);
-% xlabel('Frequency(kHz)','Interpreter','Latex','FontSize',15)
-% grid on;
 
 %%
 
@@ -67,28 +51,15 @@ IPTDutyCycle = readtable("D:\Github\WPT-Motor\Test-Result\2021.02.18\IPT-Duty-Cy
 clear opts
 %%
 RL=8.44;
-duty=IPTDutyCycle.DutyCycle(2:end-1);
-simulation_gain=IPTDutyCycle.Simulation(2:end-1)/sqrt(2);
-seconder_current=IPTDutyCycle.SeconderAkm(2:end-1)/1000;
-seconder_voltage=seconder_current*RL;
-experiment_gain=seconder_voltage./IPTDutyCycle.InputVoltage(2:end-1)/0.547;
+duty=IPTDutyCycle.DutyCycle(1:end);
+simulation_gain=IPTDutyCycle.Simulation(1:end)/sqrt(2);
 
 figure();
 set(gcf,'Position',[100 100 300 300])
 plot(duty,simulation_gain,'LineWidth',2,'Color','r');
 hold on;
-plot(duty,experiment_gain,'x','LineWidth',5,'Color','b');
-ylabel('Gain','Interpreter','Latex','FontSize',12,'FontName','Times New Roman');
+ylabel('Gain($ \frac{Vin}{Vdc}$)','Interpreter','Latex','FontSize',12,'FontName','Times New Roman');
 xlabel('Duty Cycle','Interpreter','Latex','FontSize',12,'FontName','Times New Roman')
-legend('simulation','experiment','FontSize',12,'FontName','Times New Roman','box','off', ...
-    'Interpreter','Latex' ...
-     ,'Position',[0.4 0.2 0.3 0.1]);
 grid on;
+ylim([0 1])
 
-
-% error=((experiment_gain-simulation_gain)./simulation_gain)*100;
-% figure();
-% plot(duty,error,'LineWidth',2,'Color','r');
-% ylabel(' $\Delta $Gain','Interpreter','Latex','FontSize',15);
-% xlabel('Frequency(kHz)','Interpreter','Latex','FontSize',15)
-% grid on;

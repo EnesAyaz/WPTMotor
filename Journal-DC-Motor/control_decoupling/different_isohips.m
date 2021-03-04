@@ -6,12 +6,11 @@ f=65e3; %Hz
 % f=80e3; %Hz
 w=2*pi*f; %rad/sec
 % k=0.25; % chosen coupling factor
-k=0.20; % chosen coupling factor
+k=0.40; % chosen coupling factor
 Vout=50; %V (rms)
 kc= (1/Qs)*sqrt(1-1/(4*Qs^2));
 % Calculation Series-compensated paralel DC BUS
 RL=(Vout^2)/P_o; %% single module R_L
-
 Ip_rms= P_o/Vin; % primary current assuming eff=1
 Is_rms=(P_o/Vout);
 M=Is_rms*RL/(w*Ip_rms); %calculated mutual inductance 
@@ -22,9 +21,10 @@ Cs=1/(w^2*Ls);  %secondary compansation
 
 Lp_p=Lp-M;
 Ls_p=Ls-M;
+RL=8.55;
 
-rp=0.3; % ohm
-rs= 0.3; % ohm 
+rp=0; % ohm
+rs= 0; % ohm 
 
 
 
@@ -47,13 +47,16 @@ rs= 0.3; % ohm
 % is given. I give a name Lp' as Lp_p and Ls' as Ls_p. 
 
 Gain=[];
+Dx=[];
 for D=0:0.005:1
+Dx=[Dx D];
 k=1;
 Vin=4*D.*(sin(k*pi*D)./(k*pi*D)).*exp(-1i*k*pi.*D);
 Vin=abs(Vin);
 % Vin=1
 % f=logspace(4,6,10000);
-f=logspace(4.6,5.2,10000);
+% f=logspace(4.6,5.2,10000);
+f=linspace(45e3,105e3,10000);
 % f=logspace(0,6,10000);
 w=2*pi*f;
 % Parameters
@@ -78,32 +81,52 @@ end
 %%
 
 % D=0.5:0.005:0.90;
-D=0:0.005:1;
+D=Dx;
 [x,y] = meshgrid(f/1000,D);
 % mesh(y,x,Gain)
 
 figure1=figure();
+set(gcf, 'Position', [ 100 100 600 300])
+set(gcf, 'Position', [ 100 100 300 300])
 colormap(jet);
 
 % Create axes
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 % Create contour
-contour(y,x,Gain,'LineWidth',4)
+contour(y,x,5000*Gain.*Gain/RL,'LineWidth',3)
 
-set(gca,'YScale','log')
+% set(gca,'YScale','log')
 % Create labels and 
 ylabel({'Frequency(kHz)'},'FontName','Times New Roman',...
-    'Interpreter','latex','FontSize',16);
+    'Interpreter','latex','FontSize',12);
 xlabel({'Duty Cycle'},'FontName','Times New Roman',...
-    'Interpreter','latex','FontSize',16);
+    'Interpreter','latex','FontSize',12);
 % title('Voltage Gain','FontSize',20);
 %
 box(axes1,'on');
 axis(axes1,'tight');
 hold(axes1,'off');
 % Set the remaining axes properties
-set(axes1,'BoxStyle','full','Layer','top','YMinorTick','on','YScale','log');
+% set(axes1,'BoxStyle','full','Layer','top','YMinorTick','on','YScale','log');
+set(axes1,'BoxStyle','full','Layer','top','YMinorTick','off');
 % Create colorbar
 colorbar(axes1);
 
+
+% Create textbox
+% annotation(figure1,'textbox',...
+%      [0.781000000000001 0.925333333333333 0.163 0.0800000000000003],...
+%     'String',{'IPT Power'},...
+%     'Interpreter','latex',...
+%     'FontName','Times New Roman','FontSize',9,...
+%     'FitBoxToText','off',...
+%     'EdgeColor','none');
+
+annotation(figure1,'textbox',...
+     [0.674666666666667 0.92 0.328000000000001 0.0800000000000004],...
+    'String',{'IPT Power'},...
+    'Interpreter','latex',...
+    'FontName','Times New Roman','FontSize',9,...
+    'FitBoxToText','off',...
+    'EdgeColor','none');

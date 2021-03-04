@@ -14,7 +14,7 @@
 % is given. I give a name Lp' as Lp_p and Ls' as Ls_p. 
 
 Gain=[];
-for D=0.5:0.05:1
+for D=0:0.05:1
 k=1;
 Vin=4*D.*(sin(k*pi*D)./(k*pi*D)).*exp(-1i*k*pi.*D);
 Vin=abs(Vin);
