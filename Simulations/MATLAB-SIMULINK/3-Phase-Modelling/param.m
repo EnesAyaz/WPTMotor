@@ -1,12 +1,12 @@
 %% Motor Parameters
-f_motor=50;
-fsw_motor=10e3;
+f_motor=300;
+fsw_motor=80e3;
 ma=0.9;
 %% Simulation parameters
 fsw=80e3;
 SampleTime=(1/fsw)/360;
 SampleTime=1e-8;
-Tfinal=0.2;
+Tfinal=0.05;
 phasePWM=180;
 %% DC SUPPLY
 VDC=200;
