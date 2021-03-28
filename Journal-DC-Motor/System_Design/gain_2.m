@@ -10,10 +10,13 @@ P_o=50; %W
 Qs=2.5; % unitless
 f=65e3; %Hz
 w=2*pi*f; %rad/sec
-k=0.7; % chosen coupling factor
+k=0.4; % chosen coupling factor
 kc= (1/Qs)*sqrt(1-1/(4*Qs^2));
 Vout= 20.4;
 R_L=(Vout^2)/P_o; %% single module R_L
+
+k=0.4; % chosen coupling factor
+Qs=5; % unitless
 
 Ip_rms= P_o/Vin; % primary current assuming eff=1
 Is_rms=(P_o/Vout);
@@ -40,10 +43,12 @@ Vo_mag= abs(V_load);
 Iin=Vin./Z123;
 Iin_angle= angle(Iin)*180/pi;
 Iin_mag= abs(Iin);
-plot(f,Vo_mag/Vin,'Linewidth',2);
-hold on; 
 
-%%
+
+hold on; 
+plot(f,Vo_mag/Vin,'Linewidth',2);
+
+
 % Create ylabel
 ylabel({'Output Voltage (V)'},'FontSize',14,'FontName','Times New Roman',...
     'Interpreter','latex');
