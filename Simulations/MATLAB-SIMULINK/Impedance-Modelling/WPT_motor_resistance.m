@@ -34,8 +34,10 @@ Rmotor=2;
 Lmotor=7e-3;
 Vin=1;
 
-RLk=[0 8.44 1e6]
+RLk=[0  1e6]
+% RLk=[8.44]
 figure();
+set(gcf,'Position',[100 100 400 300])
 for i =1:length(RLk)
 RL=RLk(i);
 % Impedance 
@@ -47,37 +49,22 @@ Z123=Z12+Z3; %% total impedance
 Z4= 1i.*w*Lmotor +(Rmotor); % motor impedance
 Z1234=((Z123.*Z4)./(Z123+Z4)); %
 
-Ip=Vin./Z123;
-Vout=Vin.*(Z12./Z123).*(RL./Z1);
-% x = 1  Ip else 
-% choose="Ip";
-% choose="Vout";
-choose ="Z";
-if choose=="Ip"
-    X_mag= abs(Ip);
-    X_angle=angle(Ip)*180/pi;
-elseif choose=="Vout"
-    X_mag= abs(Vout);
-    X_angle=angle(Vout)*180/pi;
-elseif  choose=="Z"
-    X_mag= abs(Z1234);
-    X_angle=angle(Z1234)*180/pi;
-else
-    X_mag= abs(Z1234);
-    X_angle=angle(Z1234)*180/pi;
-end
-
 
 hold on;
-plot(f,X_mag,'Linewidth',3);
+plot(f,abs(Z123),'Linewidth',2);
 set(gca, 'XScale', 'log','YScale','log')
-xlabel('Frequency (Hz)','FontSize',14,'FontWeight','Bold')
-ylabel('Impedance(\Omega)','Interpreter','Tex','FontSize',14,'FontWeight','Bold')
 grid on;
-set(gca,'FontSize',30);
-
-
 end
-B=arrayfun(@num2str,RLk,'un',0)
 
-legend(B)
+hold on;
+plot(f,abs(Z4),'Linewidth',3);
+set(gca, 'XScale', 'log','YScale','log')
+xlabel('Frequency (Hz)','FontSize',12)
+ylabel('Impedance(\Omega)','Interpreter','Tex','FontSize',12)
+grid on;
+set(gca,'FontSize',12);
+
+%%
+% B=arrayfun(@num2str,RLk,'un',0)
+
+% legend(B)

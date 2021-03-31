@@ -1,0 +1,17 @@
+Bus=100:1:250;
+Tx=ones(size(Bus));
+power=Bus/100;
+R=100./Bus;
+
+plot(Bus,power,'r','LineWidth',2);
+hold on;
+plot(Bus,Tx,'g','LineWidth',2);
+hold on;
+plot(Bus,R,'b','LineWidth',2);
+
+% ylabel({'Normalized Value'},'FontSize',14,'FontName','Times New Roman',...
+%     'Interpreter','latex');
+
+% Create xlabel
+xlabel({'Bus Voltage(V)'},'FontSize',14,'FontName','Times New Roman',...
+    'Interpreter','latex');
