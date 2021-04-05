@@ -21,7 +21,7 @@ hold on;
 % hold on;
 
 %%
-stem(f,Phase*180/pi,'lineStyle','none','LineWidth',3)
+stem(f,Phase*180/pi,'lineStyle','-','LineWidth',3)
 hold on;
 
 %%

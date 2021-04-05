@@ -6,7 +6,7 @@ ma=0.9;
 fsw=80e3;
 SampleTime=(1/fsw)/360;
 SampleTime=1e-8;
-Tfinal=0.05;
+Tfinal=0.02;
 phasePWM=180;
 %% DC SUPPLY
 VDC=200;

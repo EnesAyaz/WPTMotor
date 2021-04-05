@@ -1,7 +1,7 @@
-Bus=100:1:250;
+Bus=100:1:320;
 Tx=ones(size(Bus));
 power=Bus/100;
-R=100./Bus;
+R=50./Bus;
 
 plot(Bus,power,'r','LineWidth',2);
 hold on;
@@ -15,3 +15,4 @@ plot(Bus,R,'b','LineWidth',2);
 % Create xlabel
 xlabel({'Bus Voltage(V)'},'FontSize',14,'FontName','Times New Roman',...
     'Interpreter','latex');
+xlim([100 320])
