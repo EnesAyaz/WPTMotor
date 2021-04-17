@@ -2,6 +2,11 @@ load('experimental_gain_duty.mat');
 Gain_D=experiment_gain;
 load('experimental_gain_frequency.mat');
 Gain_F=experiment_gain;
+%%
+% load('simulaton_gain_duty.mat');
+% Gain_D=simulation_gain;
+% load('simulaton_gain_frequency.mat');
+% Gain_F=simulation_gain;
 
 %%
 Gain=[];
@@ -10,7 +15,7 @@ Vout=Gain_D(i)*Gain_F;
 Gain=[Gain,abs(Vout)];
 end
 Gain=Gain';
-
+Gain=Gain*0.94;
 [x,y] = meshgrid(frequency,duty);
 
 figure1=figure();
@@ -21,7 +26,7 @@ colormap(jet);
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 % Create contour
-contour(y,x,10000*Gain.*Gain/8.44,'LineWidth',4)
+contour(y,x,10000*Gain.*Gain/8,'LineWidth',4)
 set(axes1,'XlimMode','manual','xlim',[0.5 1])
 
 % set(gca,'YScale','log')

@@ -20,7 +20,7 @@ Vin=4*D.*(sin(k*pi*D)./(k*pi*D)).*exp(-1i*k*pi.*D);
 Vin=abs(Vin);
 % Vin=1
 % f=logspace(4,6,10000);
-f=logspace(4.6,5.2,10000);
+f=logspace(4.6,5.2,200);
 % f=logspace(0,6,10000);
 w=2*pi*f;
 % Parameters
@@ -47,7 +47,7 @@ Z1234=((Z123.*Z4)./(Z123+Z4)); %
 
 % Ip=Vin./Z123;
 Vout=Vin.*(Z12./Z123).*(RL./Z1);
-Gain=[Gain;abs(Vout)];
+Gain=[Gain;abs(Vout)*0.8];
 
 end 
 
@@ -65,7 +65,7 @@ colormap(jet);
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 % Create contour
-contour(y,x,Gain,'LineWidth',4)
+contour(y,x,90*90*Gain.*Gain/8,'LineWidth',4)
 
 set(gca,'YScale','log')
 % Create labels and 

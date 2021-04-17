@@ -1,5 +1,5 @@
-Itx=4.2;
-Im=10;
+Itx=1.7;
+Im=7;
 fourier_motor=[];
 fourier_tx_r=[];
 fourier_tx_l=[];

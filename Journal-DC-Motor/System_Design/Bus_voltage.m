@@ -1,3 +1,4 @@
+figure();
 Bus=100:1:320;
 Tx=ones(size(Bus));
 power=Bus/100;
@@ -7,7 +8,7 @@ plot(Bus,power,'r','LineWidth',2);
 hold on;
 plot(Bus,Tx,'g','LineWidth',2);
 hold on;
-plot(Bus,R,'b','LineWidth',2);
+plot(Bus,R*2,'b','LineWidth',2);
 
 % ylabel({'Normalized Value'},'FontSize',14,'FontName','Times New Roman',...
 %     'Interpreter','latex');

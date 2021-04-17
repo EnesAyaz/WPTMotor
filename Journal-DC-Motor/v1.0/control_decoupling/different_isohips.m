@@ -1,13 +1,13 @@
 %% FILL INFORMATION BELOW
-Vin=100; %V  (rms) 
-P_o=300; %W   
+Vin=40; %V  (rms) 
+P_o=50; %W   
 Qs=2.5; % unitless
 f=65e3; %Hz
 % f=80e3; %Hz
 w=2*pi*f; %rad/sec
 % k=0.25; % chosen coupling factor
 k=0.40; % chosen coupling factor
-Vout=50; %V (rms)
+Vout=20; %V (rms)
 kc= (1/Qs)*sqrt(1-1/(4*Qs^2));
 % Calculation Series-compensated paralel DC BUS
 RL=(Vout^2)/P_o; %% single module R_L
@@ -21,11 +21,10 @@ Cs=1/(w^2*Ls);  %secondary compansation
 
 Lp_p=Lp-M;
 Ls_p=Ls-M;
-RL=8.55;
+RL=8;
 
 rp=0; % ohm
 rs= 0; % ohm 
-
 
 
 
@@ -80,7 +79,7 @@ end
 
 %%
 
-% D=0.5:0.005:0.90;
+% D=0.5:0.005:0.85;
 D=Dx;
 [x,y] = meshgrid(f/1000,D);
 % mesh(y,x,Gain)
