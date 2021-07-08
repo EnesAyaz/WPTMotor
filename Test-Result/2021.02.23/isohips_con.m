@@ -21,7 +21,7 @@ Vin=abs(Vin);
 % Vin=1
 % f=logspace(4,6,10000);
 % f=logspace(4.6,5.2,10000);
-f=80e3:1e3:120e3;
+f=50e3:1e3:100e3;
 % f=logspace(0,6,10000);
 w=2*pi*f;
 % Parameters
@@ -77,7 +77,7 @@ Rx_current=[1.023 1.011 1.024 1.013 1 1.04 1.01 1.03];
 %%
 
 % D=0.5:0.005:0.90;
-D=0.5:0.05:1;
+D=0:0.05:1;
 [x,y] = meshgrid(f/1000,D);
 % mesh(y,x,Gain)
 
@@ -108,10 +108,10 @@ hold(axes1,'off');
 set(axes1,'BoxStyle','full','Layer','top','YMinorTick','on');
 % Create colorbar
 colorbar(axes1);
-D=0.5:0.05:0.90;
-hold on;
-plot(D,Frequency,'LineStyle','None','Marker','p','MarkerSize',10, ...
-    'LineWidth',2,'Color','k');
+% D=0.5:0.05:0.90;
+% hold on;
+% plot(D,Frequency,'LineStyle','None','Marker','p','MarkerSize',10, ...
+%     'LineWidth',2,'Color','k');
 
 %%
 

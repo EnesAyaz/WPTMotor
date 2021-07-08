@@ -10,7 +10,7 @@ I_cap = readtable("D:\Github\WPT-Motor\Journal-DC-Motor\Design_consideration\Cap
     opts, "UseExcel", false);
 clear opts
 %%
-k=5
+k=1;
 Im05=I_cap.Im05(1:k);
 Im05=zeros(5,1);
 Im06=I_cap.Im06(1:k);

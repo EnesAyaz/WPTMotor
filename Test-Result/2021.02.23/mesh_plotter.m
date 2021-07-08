@@ -1,0 +1,1 @@
+[x,y] = meshgrid(simulation_gain,simulation_gain_duty);

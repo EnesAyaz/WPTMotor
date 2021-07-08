@@ -1,10 +1,11 @@
 figure;
 %%
 ma=0.6;
-phase_fund=-2*pi/3;
-%-2*pi/3;
-[f, Mag, Phase]=SwitchingFunction(ma,300,80e3,phase_fund,0,4,4);
+phase_fund=0;
+phase_carrier=0;
+[f, Mag, Phase]=SwitchingFunction(ma,300,80e3,phase_fund,phase_carrier,2,4);
 
+%%
 f=f(3:end);
 Mag=Mag(3:end);
 Phase=Phase(3:end);

@@ -47,7 +47,7 @@ Z1234=((Z123.*Z4)./(Z123+Z4)); %
 
 % Ip=Vin./Z123;
 Vout=Vin.*(Z12./Z123).*(RL./Z1);
-Gain=[Gain;abs(Vout)*0.8];
+Gain=[Gain;abs(Vout)*0.8*0.8];
 
 end 
 
