@@ -3,7 +3,7 @@ figure;
 ma=0.6;
 phase_fund=0;
 phase_carrier=0;
-[f, Mag, Phase]=SwitchingFunction(ma,300,80e3,phase_fund,phase_carrier,2,4);
+[f, Mag, Phase]=SwitchingFunction(ma,300,40e3,phase_fund,phase_carrier,2,4);
 
 %%
 f=f(3:end);
