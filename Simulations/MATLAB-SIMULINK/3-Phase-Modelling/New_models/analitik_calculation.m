@@ -2,10 +2,11 @@ figure;
 fx=[];
 MagX=[];
 PhaseX=[];
+mx=[];
 %%
+for ma=0:0.1:1
 fundamental_freq=300;
 switching_frequency=40e3;
-ma=1;
 phase_fund=0;
 phase_carrier=0;
 phase_fund1=phase_fund*pi/180;
@@ -75,6 +76,7 @@ fx=[fx; f];
 MagX=[MagX; Mag ];
 PhaseX=[PhaseX; Phase];
 
+end
 
 %%
 m=0:0.1:1;

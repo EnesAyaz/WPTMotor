@@ -1,5 +1,5 @@
-A=0.6;
-B=0.1;
+A=0.41;
+B=0.070;
 fs=40e3;
 fsM2fo=39400;
 fsP2fo=40600;
@@ -21,11 +21,21 @@ hold on;
 plot(time,B_fsP2fo);
 
 %%
+plot(time,A_fs+B_fsP2fo);
+
+
+%%
+figure();
+subplot(4,1,1)
 plot(time,abs(B_fsM2fo+B_fsP2fo));
 
 %%
+subplot(4,1,2)
 plot(time,abs(A_fs+B_fsP2fo));
 
 %%
-
+subplot(4,1,3)
 plot(time,abs(A_fs+B_fsM2fo));
+
+subplot(4,1,4)
+plot(time,abs(A_fs+B_fsM2fo+B_fsP2fo));
