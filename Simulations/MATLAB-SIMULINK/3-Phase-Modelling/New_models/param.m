@@ -1,8 +1,8 @@
 %% Motor Parameters
 f_motor=500;
 fsw=80e3;
-ma=0.8;
-% ma=ma+0.1;
+% ma=0;
+ma=ma+0.1;
 f_side1=fsw-2*f_motor;
 f_side2= fsw+2*f_motor;
 mi=fsw/f_motor;
@@ -12,17 +12,17 @@ mi_s2=mi-2;
 fsw=80e3;
 SampleTime=(1/fsw)/360;
 SampleTime=1e-8;
-Tfinal=0.008;
+Tfinal=0.024;
 phasePWM=180;
 %% DC SUPPLY
-VDC=20;
+VDC=250;
 LSource= 1e-9;
 RSource= 0.001;
 
 %% 
 ModuleAPhase=0;
-% ModuleBPhase=10;
-ModuleBPhase=ModuleBPhase+10;
+ModuleBPhase=40;
+% ModuleBPhase=ModuleBPhase+10;
 ModuleCPhase=0;
 
 %% Full-Bridge Parameters
