@@ -1,7 +1,7 @@
 %%
 m=1; % carrier
 n=2; % fundamental
-ma=0:0.1:1;
+ma=0:0.01:1;
 mag_fsw=2*m*besselj(0,ma*pi/2)/pi;
 mag_side=abs(2.*besselj(n,m*ma*pi/2)/(m*pi));
 mag_fsw_carrier=[];
