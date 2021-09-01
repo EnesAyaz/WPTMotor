@@ -2,7 +2,7 @@ clear ;
 clc;
 tic;
 %% Time array
-ma = 0.5;
+ma = 0.8;
 fout = 50; % Hz
 fsw = 1200; % Hz
 Tstep = (1/fsw)/200; % s
@@ -25,8 +25,8 @@ for k = 1:Tfinal*fsw
 end
 %%
 carrierPhA=0;
-carrierPhB=0;
-carrierPhC=0;
+carrierPhB=120;
+carrierPhC=120;
 carA= round(carrierPhA/(fsw*Ts)/360);
 if carA==0
     carA=1;
@@ -146,4 +146,13 @@ hold on;
 fill(x2, inBetween2, 'k');
 hold on;
 
+%%
 
+plot(time_array,VphaA-VphaB,'color','r','LineWidth',2)
+hold on; 
+plot(time_array,Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B,'color','b','LineWidth',2);
+hold on;
+
+set(gca,'xtick',[])
+set(gca,'ytick',[])
+ylim([-1.2 1.2])
