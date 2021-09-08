@@ -20,7 +20,7 @@ mag= sqrt(mag_fsw_carrier.^2+mag_side1_carrier.^2+mag_side2_carrier.^2);
 
 %%
 figure();
-contourf(X,Y,250*mag_fsw_carrier/sqrt(2),'LevelStep',10)
+contourf(X,Y,200*mag_fsw_carrier/sqrt(2),'LevelStep',10)
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -35,7 +35,7 @@ title('Voltage for ($f_s$)' ...
 %%
 
 figure();
-contourf(X,Y,250*mag_side1_carrier/sqrt(2))
+contourf(X,Y,200*mag_side1_carrier/sqrt(2))
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -62,7 +62,7 @@ title('Voltage for ($f_s-2f_o$)' ...
     'Times New Roman','FontSize',15)
 %%
 figure();
-contourf(X,Y,250*mag/sqrt(2),'LevelStep',10)
+contourf(X,Y,200*mag/sqrt(2),'LevelStep',10)
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -75,7 +75,7 @@ title({'A Equivalent Single Frequency  Voltage for','($f_s$) and ($f_s\pm2f_o$)'
     'Times New Roman','FontSize',15)
 %%
 for N=35:1:45
- plot(ma,mag(N,:)*250/sqrt(2))
+ plot(ma,mag(N,:)*200/sqrt(2))
  hold on
  
 end

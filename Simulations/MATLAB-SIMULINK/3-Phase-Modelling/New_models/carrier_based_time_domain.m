@@ -2,7 +2,7 @@ clear ;
 clc;
 tic;
 %% Time array
-ma = 0.8;
+ma = 0.5;
 fout = 50; % Hz
 fsw = 1200; % Hz
 Tstep = (1/fsw)/200; % s
@@ -58,10 +58,10 @@ VphaA = ma*cos(2*pi*fout*time_array+phaseA)/2;
 VphaB = ma*cos(2*pi*fout*time_array+phaseB)/2;
 VphaC = ma*cos(2*pi*fout*time_array+phaseC)/2;
 %%
-plot(time_array,SA-SB)
-ylim([-2 2])
-hold on;
-plot(time_array,VphaA-VphaB)
+% plot(time_array,SA-SB)
+% ylim([-2 2])
+% hold on;
+% plot(time_array,VphaA-VphaB)
 
 %%
 carrierPhA=carrierPhA*pi/180;
@@ -73,86 +73,98 @@ mag_fsw=2*m*besselj(0,ma*pi/2)/pi;
 Vfsw_A=(2*m*besselj(0,ma*pi/2)/pi)*cos(2*pi*fsw*time_array+carrierPhA);
 Vfsw_B=(2*m*besselj(0,ma*pi/2)/pi)*cos(2*pi*fsw*time_array+carrierPhB);
 Vfsw_C=(2*m*besselj(0,ma*pi/2)/pi)*cos(2*pi*fsw*time_array+carrierPhC);
-%%
-VfswSL_A=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhA-2*phaseA);
-VfswSL_B=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhB-2*phaseB);
-VfswSL_C=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhB-2*phaseC);
-%%
-VfswSH_A=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhA+2*phaseA);
-VfswSH_B=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhB+2*phaseB);
-VfswSH_C=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*fsw*time_array+carrierPhB+2*phaseC);
+%
+VfswSL_A=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw-2*fout)*time_array+carrierPhA-2*phaseA);
+VfswSL_B=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw-2*fout)*time_array+carrierPhB-2*phaseB);
+VfswSL_C=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw-2*fout)*time_array+carrierPhB-2*phaseC);
+%
+VfswSH_A=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw+2*fout)*time_array+carrierPhA+2*phaseA);
+VfswSH_B=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw+2*fout)*time_array+carrierPhB+2*phaseB);
+VfswSH_C=2.*besselj(n,m*ma*pi/2)/(m*pi)*cos(2*pi*(fsw+2*fout)*time_array+carrierPhB+2*phaseC);
 
 %%
-plot(time_array,SA-SB,'color','k','LineWidth',0.4)
-hold on;
-plot(time_array,VphaA-VphaB,'color','m','LineWidth',2)
-hold on; 
-plot(time_array,Vfsw_A-Vfsw_B,'color','g','LineWidth',0.8);
-hold on;
-plot(time_array,VfswSL_A-VfswSL_B,'color','r','LineWidth',0.8);
-hold on;
-plot(time_array,VfswSH_A-VfswSH_B,'color','b','LineWidth',0.8);
-hold on;
-set(gca,'xtick',[])
-set(gca,'ytick',[])
-ylim([-1.2 1.2])
+% plot(time_array,SA-SB,'color','k','LineWidth',0.4)
+% hold on;
+% plot(time_array,VphaA-VphaB,'color','m','LineWidth',2)
+% hold on; 
+% plot(time_array,Vfsw_A-Vfsw_B,'color','g','LineWidth',0.8);
+% hold on;
+% plot(time_array,VfswSL_A-VfswSL_B,'color','r','LineWidth',0.8);
+% hold on;
+% plot(time_array,VfswSH_A-VfswSH_B,'color','b','LineWidth',0.8);
+% hold on;
+% set(gca,'xtick',[])
+% set(gca,'ytick',[])
+% ylim([-1.2 1.2])
 %%
+% figure();
+% plot(time_array,SA,'color','k','LineWidth',0.4)
+% ylim([-1.2 1.2])
+% hold on;
+% plot(time_array,VrefA,'color','m','LineWidth',2)
+% hold on; 
+%%
+
+% figure();
+% plot(time_array,VcarrierA,'color','r','LineWidth',0.4)
+% ylim([-1.2 1.2])
+% hold on;
+% plot(time_array,VcarrierB,'color','g','LineWidth',0.4)
+% ylim([-1.2 1.2])
+% hold on;
+% plot(time_array,VcarrierC,'color','b','LineWidth',0.4)
+% ylim([-1.2 1.2])
+% hold on
+% plot(time_array,VrefA,'-','color','r','LineWidth',2)
+% hold on; 
+% plot(time_array,VrefB,'-','color','g','LineWidth',2)
+% hold on; 
+% plot(time_array,VrefC,'-','color','b','LineWidth',2)
+% hold on; 
+% set(gca,'xtick',[])
+% set(gca,'ytick',[])
+% xlim([7/8/fout 15/8/fout])
+
+%% 
 figure();
-plot(time_array,SA,'color','k','LineWidth',0.4)
-ylim([-1.2 1.2])
+plot(time_array,Vfsw_A-Vfsw_B+VfswSH_A-VfswSH_B+VfswSL_A-VfswSL_B,'color','b','LineWidth',0.8);
 hold on;
-plot(time_array,VrefA,'color','m','LineWidth',2)
-hold on; 
-%%
-
+set(gca,'xtick',[])
+set(gca,'ytick',[])
+%% 
 figure();
-plot(time_array,VcarrierA,'color','r','LineWidth',0.4)
-ylim([-1.2 1.2])
+plot(time_array,Vfsw_A-Vfsw_B+VfswSH_A-VfswSH_B,'color','b','LineWidth',0.8);
 hold on;
-plot(time_array,VcarrierB,'color','g','LineWidth',0.4)
-ylim([-1.2 1.2])
-hold on;
-plot(time_array,VcarrierC,'color','b','LineWidth',0.4)
-ylim([-1.2 1.2])
-hold on
-plot(time_array,VrefA,'-','color','r','LineWidth',2)
-hold on; 
-plot(time_array,VrefB,'-','color','g','LineWidth',2)
-hold on; 
-plot(time_array,VrefC,'-','color','b','LineWidth',2)
-hold on; 
-set(gca,'xtick',[])
-set(gca,'ytick',[])
-xlim([7/8/fout 15/8/fout])
+
 
 %%
-plot(time_array,SA)
-y=zeros(1,length(SA));
-
-for j=1:length(SA)
-if SA(j)==1
-    SAp(j)=0;
-else 
-    SAp(j)=1; 
-end
-end
+% plot(time_array,SA)
+% y=zeros(1,length(SA));
+% 
+% for j=1:length(SA)
+% if SA(j)==1
+%     SAp(j)=0;
+% else 
+%     SAp(j)=1; 
+% end
+% end
 %%
-x2 = [time_array, fliplr(time_array)];
-inBetween = [SA, fliplr(y)];
-inBetween2 = [SAp, fliplr(y)];
-%%
-fill(x2, inBetween, 'r');
-hold on;
-fill(x2, inBetween2, 'k');
-hold on;
-
-%%
-
-plot(time_array,VphaA-VphaB,'color','r','LineWidth',2)
-hold on; 
-plot(time_array,Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B,'color','b','LineWidth',2);
-hold on;
-
-set(gca,'xtick',[])
-set(gca,'ytick',[])
-ylim([-1.2 1.2])
+% x2 = [time_array, fliplr(time_array)];
+% inBetween = [SA, fliplr(y)];
+% inBetween2 = [SAp, fliplr(y)];
+% %%
+% fill(x2, inBetween, 'r');
+% hold on;
+% fill(x2, inBetween2, 'k');
+% hold on;
+% 
+% %%
+% 
+% plot(time_array,VphaA-VphaB,'color','r','LineWidth',2)
+% hold on; 
+% plot(time_array,Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B,'color','b','LineWidth',2);
+% hold on;
+% 
+% set(gca,'xtick',[])
+% set(gca,'ytick',[])
+% ylim([-1.2 1.2])
