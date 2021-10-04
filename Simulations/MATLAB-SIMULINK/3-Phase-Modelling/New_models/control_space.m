@@ -1,7 +1,8 @@
 %%
+Vdc=48;
 m=1; % carrier
 n=2; % fundamental
-ma=0:0.1:1;
+ma=0:0.01:1;
 mag_fsw=2*m*besselj(0,ma*pi/2)/pi;
 mag_side=abs(2.*besselj(n,m*ma*pi/2)/(m*pi));
 mag_fsw_carrier=[];
@@ -20,7 +21,7 @@ mag= sqrt(mag_fsw_carrier.^2+mag_side1_carrier.^2+mag_side2_carrier.^2);
 
 %%
 figure();
-contourf(X,Y,200*mag_fsw_carrier/sqrt(2),'LevelStep',10)
+contourf(X,Y,Vdc*mag_fsw_carrier/sqrt(2),'LevelStep',10)
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -35,7 +36,7 @@ title('Voltage for ($f_s$)' ...
 %%
 
 figure();
-contourf(X,Y,200*mag_side1_carrier/sqrt(2))
+contourf(X,Y,Vdc*mag_side1_carrier/sqrt(2))
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -49,7 +50,7 @@ title('Voltage for ($f_s-2f_o$)' ...
 
 %% 
 figure();
-contourf(X,Y,250*mag_side2_carrier/sqrt(2))
+contourf(X,Y,Vdc*mag_side2_carrier/sqrt(2))
 colormap(jet)
 h=colorbar();
 set(h,'Ticks',[0:10:300])
@@ -62,10 +63,10 @@ title('Voltage for ($f_s-2f_o$)' ...
     'Times New Roman','FontSize',15)
 %%
 figure();
-contourf(X,Y,200*mag/sqrt(2),'LevelStep',10)
+contourf(X,Y,Vdc*mag/sqrt(2),'LevelStep',2)
 colormap(jet)
 h=colorbar();
-set(h,'Ticks',[0:10:300])
+set(h,'Ticks',[0:5:100])
 ylabel('Carrier Phase ($^o$)','interpreter','Latex','FontName', ...
     'Times New Roman','FontSize',15)
 xlabel('Modulation Index (ma)','interpreter','Latex','FontName', ...
