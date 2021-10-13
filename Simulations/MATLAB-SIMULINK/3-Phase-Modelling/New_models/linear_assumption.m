@@ -13,3 +13,9 @@ a=abs(2*m*besselj(0,m*ma*pi/2).*besselj(n,m*ma*pi/2)*sin((m+n)*pi/2)/pi);
 a=abs(2.*besselj(n,m*ma*pi/2)/(m*pi));
 plot(ma,abs(a))
 hold on;
+%%
+
+figure();
+plot(ma,abs(a1./a))
+ylim([0 2])
+% xlim([0 1])

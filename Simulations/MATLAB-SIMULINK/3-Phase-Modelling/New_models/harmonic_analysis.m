@@ -3,11 +3,11 @@ MagX=[];
 PhaseX=[];
 mx=[];
 
-for ma=0:0.1:1
+for ma=0:0.05:1
 mx=[mx , ma ];
 fundamental_freq=4000;
 switching_frequency=40e3;
-phase_fund=120;
+phase_fund=0;
 phase_carrier=0;
 phase_fund1=phase_fund*pi/180;
 phase_carrier1=phase_carrier*pi/180;
@@ -25,11 +25,9 @@ PhaseX=[PhaseX ; Phase];
 
 end
 
-%%
 fp=0:fundamental_freq:switching_frequency*2+5*fundamental_freq;
 Magp=zeros([length(mx), length(fp)]);
 Phasep=zeros([length(mx), length(fp)]);
-%%
 for i=1:length(fp)
    
     for k=1:length(f)
@@ -56,10 +54,10 @@ figure();
 set(gcf,'Position',[100 100 650 450])
 for i =1:length(f)
 [X,Y] = meshgrid(f(i),mx);
-stem3(X,Y,MagX(:,i),'Marker','^','LineWidth',1,'Color',color(i))
+stem3(X,Y,MagX(:,i),'Marker','^','MarkerSize',5,'LineWidth',1,'Color',color(i))
 
 hold on;
-plot3(X,Y,MagX(:,i),'LineStyle','-','LineWidth',1,'Color',color(i))
+% plot3(X,Y,MagX(:,i),'LineStyle','-','LineWidth',1,'Color',color(i))
 end
 
 % grid off;
@@ -160,14 +158,4 @@ yticks(-180:30:180)
 ylim([-180 180])
 xlabel({'Frequency'},'interpreter','Latex','FontSize',15);
 ylabel({'Phase(Degree)'},'interpreter','Latex','FontSize',15)
-
-
-
-
-
-
-
-
-
-
 

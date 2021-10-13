@@ -1,5 +1,5 @@
 %%
-Vdc=48;
+Vdc=100;
 m=1; % carrier
 n=2; % fundamental
 ma=0:0.01:1;
