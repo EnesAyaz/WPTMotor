@@ -1,6 +1,6 @@
 X=[];
 %%
-for ma = 0.5
+for ma = 0.2
 fout = 50; % Hz
 fsw = 1e3; % Hz
 fl=fsw-2*fout;
@@ -17,10 +17,10 @@ Tfinal =2/fout ; % s
 time_array = 0:Tstep:Tfinal-Tstep;
 NumberofSteps = numel(time_array);
 
-m=1; % carrier
-n=2; % fundamental
+m=2; % carrier
+n=3; % fundamental
 mb=2.*besselj(n,m*ma*pi/2)/(m*pi);
-% mb=0;
+mb=0;
 % Time array
 %Generate switching signals
 VrefP = ma*cos(2*pi*fout*time_array+phaseP)+2*mb*cos(2*pi*fl*time_array-2*phaseP)+2*mb*cos(2*pi*fh*time_array+2*phaseP);
@@ -47,8 +47,8 @@ SP = double(VrefP > VcarrierP);
 % plot(time_array,VrefP)
 
 % figure();
-plot(time_array,SP)
-hold on;
+% plot(time_array,SP)
+% hold on;
 %%
 Y = fft(SP);
 P2 = abs(Y/NumberofSteps);
@@ -60,7 +60,7 @@ f = Fs*(0:(NumberofSteps/2))/NumberofSteps;
 % title('Single-Sided Amplitude Spectrum of X(t)')
 % xlabel('f (Hz)')
 % ylabel('|P1(f)|')
-% xlim([0 4e4])
+% xlim([1500 2500])
 [al,bl]=find(f==(fsw-2*fout));
 [a,b]=find(f==fsw);
 [ah,bh]=find(f==(fsw+2*fout));
