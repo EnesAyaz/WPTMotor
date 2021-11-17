@@ -133,12 +133,12 @@ title({'A Equivalent Single Frequency  Voltage for','($f_s$) and ($f_s\pm2f_o$)'
     ,'interpreter','Latex','FontName', ...
     'Times New Roman','FontSize',15)
 %%
-for N=35:1:45
+for N=1:4:45
  plot(ma,mag(N,:)*Vdc/sqrt(2))
  hold on
  
 end
-N=35:1:45;
+N=1:4:45;
 str = string(N);
 legend(str)
 xlabel('modulation index( $m_a$)','interpreter','Latex','FontName', ...
