@@ -127,11 +127,11 @@ filename=strcat(file_location,name);
 clear name filename
 %%
 figure1=figure();
-figure1.Position = [0 0 400 200];
+figure1.Position = [0 0 600 200];
 axes1 = axes('Parent',figure1);
-plot(time_VAB_m06_phi0,data_VAB_m06_phi0,'Color',[0 0.5 0],'LineWidth',0.1);
+plot(time_VAB_m06_phi0,data_VAB_m06_phi0,'Color',[0 0 0],'LineWidth',0.1);
 
-set(axes1,'FontName','Times New Roman','FontSize',10);
+set(axes1,'FontName','Times New Roman','FontSize',12);
 % -5.10e-5
 box off
 xlim([1.10e-4, 11.1e-4])
@@ -187,9 +187,9 @@ filename=strcat(file_location,name);
 clear name filename
 %%
 figure1=figure();
-figure1.Position = [0 0 400 200];
+figure1.Position = [0 0 600 200];
 axes1 = axes('Parent',figure1);
-plot(time_VAB_m06_phi475,data_VAB_m06_phi475,'Color',[0 0.5 0],'LineWidth',0.1);
+plot(time_VAB_m06_phi475,data_VAB_m06_phi475,'Color',[0 0 0],'LineWidth',0.1);
 
 set(axes1,'FontName','Times New Roman','FontSize',10);
 % -5.10e-5

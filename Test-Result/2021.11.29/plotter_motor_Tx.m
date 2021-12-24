@@ -18,7 +18,6 @@ ylim([-4 4])
 a=linspace(-0.1065,-0.0065,6);
 xticks(a)
 xticklabels(string(linspace(0,0.1,6)))
-xticklabels({''})
 yticks([-4 -2 0 2 4])
 % yticklabels({'','-Vdc','','0','','Vdc',''})
 % xlabel('Time (ms)','Interpreter','Latex','FontName','Times New Roman','FontSize',12);
@@ -43,9 +42,7 @@ grid on;
 xlim([-0.1065,-0.0065])
 ylim([-1 1])
 a=linspace(-0.1065,-0.0065,6);
-xticks(a)
 xticklabels(string(linspace(0,0.1,6)))
-xticklabels({''})
 yticks([-1 -0.5 0 0.5 1])
 % yticklabels({'','-Vdc','','0','','Vdc',''})
 % xlabel('Time (ms)','Interpreter','Latex','FontName','Times New Roman','FontSize',12);

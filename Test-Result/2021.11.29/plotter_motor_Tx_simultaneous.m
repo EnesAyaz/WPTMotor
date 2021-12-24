@@ -32,9 +32,9 @@ filename=strcat(file_location,name);
 clear name filename
 %%
 figure1=figure();
-figure1.Position = [0 0 500 200];
+figure1.Position = [0 0 300 200];
 axes1 = axes('Parent',figure1);
-plot(time_onlymotor,data_onlymotor,'Color',[0 0.5 0],'LineWidth',2);
+plot(time_onlymotor,data_onlymotor,'Color',[0.5 0 0.5],'LineWidth',2);
 set(axes1,'FontName','Times New Roman','FontSize',12);
 % -5.10e-5
 grid on;

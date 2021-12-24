@@ -133,7 +133,7 @@ title({'A Equivalent Single Frequency  Voltage for','($f_s$) and ($f_s\pm2f_o$)'
     ,'interpreter','Latex','FontName', ...
     'Times New Roman','FontSize',15)
 %%
-for N=1:4:45
+for N=1:1:90
  plot(ma,mag(N,:)*Vdc/sqrt(2))
  hold on
  
