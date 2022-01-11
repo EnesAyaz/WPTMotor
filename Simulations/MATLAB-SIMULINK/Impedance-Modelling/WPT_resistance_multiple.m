@@ -34,7 +34,8 @@ Rmotor=2;
 Lmotor=7e-3;
 Vin=1;
 
-RLk=[0 8.44 1e6]
+RLk=[0 8.44 1e6];
+% RLk=[12:5:100];
 figure();
 for i =1:length(RLk)
 RL=RLk(i);
@@ -52,7 +53,7 @@ Vout=Vin.*(Z12./Z123).*(RL./Z1);
 % x = 1  Ip else 
 % choose="Ip";
 % choose="Vout";
-choose ="Z";
+choose ="Vout";
 if choose=="Ip"
     X_mag= abs(Ip);
     X_angle=angle(Ip)*180/pi;

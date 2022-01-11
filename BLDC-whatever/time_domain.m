@@ -105,6 +105,20 @@ grid minor;
 set(gca,'ytick',[])
 
 %%
+figure1 = figure;
+% Create axes
+axes1 = axes('Parent',figure1);
+hold(axes1,'on');
+% Create plot
+plot(time_array,VcarrierA,'color',[0.5 0 0.5],'LineWidth',0.5)
+box(axes1,'on');
+hold(axes1,'off');
+% Set the remaining axes properties
+set(axes1,'XTickLabel','','YTickLabel','');
+hold on;
+
+
+%%
 figure();
 minus=0;
 plot(time_array,(Vfsw_A-Vfsw_B)+minus,'color',[0.5 0 0],'LineWidth',2);
