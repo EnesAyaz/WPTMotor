@@ -99,13 +99,18 @@ end
 %%
 VAB=SA-SB;
 VCA=SC-SA;
-%%
-% figure();
-% plot(time_array,VAB,'LineWidth',1)
-% 
-% %%
+plot(time_array,SA,'LineWidth',1)
+hold on;
+% plot(time_array,SB,'LineWidth',1);
 % hold on;
-% plot(time_array,VCA-3,'LineWidth',1)
+% plot(time_array,SC,'LineWidth',1)
+%%
+figure();
+plot(time_array,VAB,'LineWidth',1)
+
+%%
+hold on;
+plot(time_array,VCA-3,'LineWidth',1)
 %%
 
 % Fs=1/Ts;
