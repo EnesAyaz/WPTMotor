@@ -7,7 +7,7 @@ Vdc=400; % V (dc)
 G_inv=0.45;
 Vin=G_inv*Vdc; %V  (rms) 
 P_o=225; %W   
-Qs=4; % unitless
+Qs=2; % unitless
 f1=50e3; %Hz
 % f=80e3; %Hz
 k=0.45; % chosen coupling factor
@@ -16,8 +16,9 @@ kc= (1/Qs)*sqrt(1-1/(4*Qs^2));
 f=f1*(sqrt(1-k))
 w=2*pi*f; %rad/sec
 % Calculation Series-compensated paralel DC BUS
-R_L= 1; %% single module R_L
+R_L= 0.81; %% single module R_L
 Vout=15; %V (rms)
+Vout=13.5; %V (rms)
 
 Ip_rms= P_o/Vin; % primary current assuming eff=1
 Is_rms=(P_o/Vout);
@@ -26,6 +27,7 @@ Ls=Qs*R_L/w;    % secondary coil inductance
 Lp=M^2/(k^2*Ls);  %primary inductance
 Cp=1/(w^2*Lp);  %primary compansation
 Cs=1/(w^2*Ls);  %secondary compansation
+%% Load changes
 %% Analytical model 
 
 %
@@ -49,7 +51,7 @@ rp=0.03; % ohm
 rs= 0.03; % ohm 
 Lp_p=Lp-M; % Henry as actually Lp-m Lp is 120u
 Ls_p=Ls-M; % Henry as actually Ls-m Ls is 120u
-f=logspace(4,5.2,200);
+f=logspace(4.4,5,200);
 w=2*pi*f;
 %%
 Z1= 1i.*w*Ls_p +R_L- 1i./(w*Cs);
