@@ -1,0 +1,21 @@
+DesignVariation : airgap='14mm' ferrite_Rx_height='100mm' ferrite_Rx_startX='20.999999999999993mm' ferrite_Rx_startZ='-40mm' ferrite_Rx_width='2mm' ferrite_Tx_height='100mm' ferrite_Tx_startX='51.5mm' ferrite_Tx_startZ='-40mm' ferrite_Tx_width='2mm' gapRxFerrite='5mm' gapTxFerrite='2mm' misal='-20mm' N_rx='5' N_tx='92' Nrx='8' Rx_current='40A' Rx_height='20mm' Rx_startX='30mm' Rx_startZ='0' Rx_width='2.5mm' Tx_current='200A' Tx_height='60mm' Tx_startX='46.5mm' Tx_width='3mm'
+Solution : TxRx : LastAdaptive
+Parameter : Matrix1
+Inductance Unit: nH
+Flux Unit: Wb
+
+Inductance
+		Current1	Current2
+	Current1	7278.1	-97644
+	Current2	-97644	2.0507E+06
+
+Inductive Coupling Coefficient
+		Current1	Current2
+	Current1	1	-0.79926
+	Current2	-0.79926	1
+
+Flux Linkage
+		FluxLinkage/Wb
+	Current1	-0.00015404
+	Current2	0.0036769
+
