@@ -2,7 +2,7 @@
 D = 0.5;
 Vref=2*D-1;
 fout = 50; % Hz
-fsw = 50*36; % Hz
+fsw = 80e3; % Hz
 Tstep = (1/fsw)/200; % s
 Ts = Tstep; % s
 Tfinal =2/fout ; % s
@@ -99,31 +99,84 @@ end
 %%
 VAB=SA-SB;
 VCA=SC-SA;
+VAC=SA-SC;
+figure();
+subplot(3,1,1)
 plot(time_array,SA,'LineWidth',1)
-hold on;
-% plot(time_array,SB,'LineWidth',1);
-% hold on;
-% plot(time_array,SC,'LineWidth',1)
+subplot(3,1,2)
+plot(time_array,SB,'LineWidth',1);
+subplot(3,1,3)
+plot(time_array,SC,'LineWidth',1)
 %%
 figure();
 plot(time_array,VAB,'LineWidth',1)
 
 %%
 hold on;
-plot(time_array,VCA-3,'LineWidth',1)
+plot(time_array,VAC-3,'LineWidth',1)
 %%
+Fs=1/Ts;
+T=Ts;
+L=NumberofSteps;
+Y = fft(VAB);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+f = Fs*(0:(L/2))/L;
+figure;
+subplot(2,1,1)
+stem(f,abs(P1)) 
+title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+xlim([78e3,82e3])
 
-% Fs=1/Ts;
-% T=Ts;
-% L=NumberofSteps;
-% Y = fft(VAB);
-% P2 = abs(Y/L);
-% P1 = P2(1:L/2+1);
-% P1(2:end-1) = 2*P1(2:end-1);
-% f = Fs*(0:(L/2))/L;
-% figure;
-% plot(f,P1) 
-% title('Single-Sided Amplitude Spectrum of X(t)')
-% xlabel('f (Hz)')
-% ylabel('|P1(f)|')
-% xlim([55000,60000])
+Fs=1/Ts;
+T=Ts;
+L=NumberofSteps;
+Y = fft(VAB);
+P2 = Y/L;
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+f = Fs*(0:(L/2))/L;
+
+subplot(2,1,2)
+stem(f,angle(P1)*180/pi) 
+title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+xlim([78e3,82e3])
+%%
+Fs=1/Ts;
+T=Ts;
+L=NumberofSteps;
+Y = fft(VCA);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+f = Fs*(0:(L/2))/L;
+figure;
+subplot(2,1,1)
+stem(f,abs(P1)) 
+title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+xlim([78e3,82e3])
+
+
+Fs=1/Ts;
+T=Ts;
+L=NumberofSteps;
+Y = fft(VCA);
+P2 = Y/L;
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+f = Fs*(0:(L/2))/L;
+
+subplot(2,1,2)
+stem(f,angle(P1)*180/pi) 
+title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+xlim([78e3,82e3])
+
