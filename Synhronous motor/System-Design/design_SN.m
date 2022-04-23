@@ -1,5 +1,5 @@
 clc;
-k=0.7;
+k=0.8;
 Vdc=400; % V (dc)
 G_inv=0.45;
 Vin=G_inv*Vdc; %V  (rms) 
@@ -26,4 +26,9 @@ M=k*sqrt(Lp*Ls);
 Lp*1e6
 Ls*1e6
 Cr*1e9
-M*1e6
+% M*1e6
+
+
+% Lr=(1-k^2)*Lp;
+% 
+% Cr=1/(w^2*Lr);
