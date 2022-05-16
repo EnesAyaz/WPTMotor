@@ -1,6 +1,6 @@
 clc;
-k=0.8;
-Vdc=400; % V (dc)
+k=0.7;
+Vdc=300; % V (dc)
 G_inv=0.45;
 Vin=G_inv*Vdc; %V  (rms) 
 f=50e3; %Hz
@@ -13,7 +13,7 @@ n=Vin/Vout;
 
 LpdivideLs=(n/k)^2;
 
-Q=3;
+Q=2.5;
 Ls=Q*R_L/w;
 Lp=LpdivideLs*Ls;
 
