@@ -74,8 +74,9 @@ grid on;
 % set(gca,'FontSize',30);
 set(axes1,'FontName','Times New Roman','FontSize',8,'YMinorTick','on',...
     'YScale','log','YTick',[0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,2,3,4,5]);
-xlabel('Frequency (Hz)','Interpreter','Latex','FontName','Times New Roman','FontSize',12)
-ylabel('AC-AC Gain($\frac{V_{out}}{V_{in}}$)','Interpreter','Latex','FontName','Times New Roman','FontSize',12)
+xlabel('Frequency (kHz)','Interpreter','Latex','FontName','Times New Roman','FontSize',14)
+% ylabel('AC-AC Gain($\frac{V_{out}}{V_{in}}$)','Interpreter','Latex','FontName','Times New Roman','FontSize',16)
+ylabel('$A_{WPT}$','Interpreter','Latex','FontName','Times New Roman','FontSize',14)
 end
 % B=arrayfun(@num2str,RLk,'un',0)
 % legend(B)
