@@ -1,6 +1,19 @@
+%%  Motor parameters
+motor_voltage= 220; % V
+motor_frequency= 50; % Hz
+phase_current= 10; % A
+Field_current= 15; % A;
+
+
+
+
+
+
+
+%%
 clc;
 k=0.7;
-Vdc=300; % V (dc)
+Vdc=100; % V (dc)
 G_inv=0.45;
 Vin=G_inv*Vdc; %V  (rms) 
 f=50e3; %Hz
