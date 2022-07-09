@@ -3,10 +3,10 @@ Gain_D=experiment_gain;
 load('experimental_gain_frequency.mat');
 Gain_F=experiment_gain;
 %%
-% load('simulaton_gain_duty.mat');
-% Gain_D=simulation_gain;
-% load('simulaton_gain_frequency.mat');
-% Gain_F=simulation_gain;
+load('simulaton_gain_duty.mat');
+Gain_D=simulation_gain;
+load('simulaton_gain_frequency.mat');
+Gain_F=simulation_gain;
 
 %%
 Gain=[];
