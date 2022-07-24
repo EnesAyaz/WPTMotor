@@ -1,0 +1,64 @@
+
+load('Bifurcation.mat')
+%%
+x=find(isnan(Freq));
+xi=x+1;
+xf=x-1;
+
+
+for k=[2,3,4,8,11]
+
+plot(Freq(xi(k):xf(k+1))/150e3,db2mag(Vout(xi(k):xf(k+1)))/3.4)
+hold on;
+end
+
+xlim([0.667, 1.33])
+set(gca,'FontName', 'Times New Roman', 'FontSize',16)
+xlabel('Normalized Frequency ($\frac{f}{f_r}$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+ylim([0 1])
+ylabel('Normalized Gain ($\frac{V}{V_{rated}}$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+%%
+load('Bifurcation_input.mat')
+
+x=find(isnan(Freq));
+xi=x+1;
+xf=x-1;
+
+for k=[2,3,4,8,11]
+
+plot(Freq(xi(k):xf(k+1))/150e3,phase(xi(k):xf(k+1)))
+hold on;
+end
+
+xlim([0.667, 1.33])
+set(gca,'FontName', 'Times New Roman', 'FontSize',16)
+xlabel('Normalized Frequency ($\frac{f}{f_r}$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+% ylim([0 1])
+ylabel('Phase ($^o$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+%%
+
+
+x=find(isnan(freq));
+xi=x+1;
+xf=x-1;
+%%
+for k=[2,3,4,5]
+plot(freq(xi(k):xf(k+1))/150e3,db2mag(Vout(xi(k):xf(k+1)))/2.15)
+hold on;
+end
+
+xlim([0.667, 2])
+set(gca,'FontName', 'Times New Roman', 'FontSize',16)
+xlabel('Normalized Frequency ($\frac{f}{f_r}$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+ylim([0 1])
+ylabel('Normalized Gain ($\frac{V}{V_{rated}}$)', 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',16)
+
+legend({'k=0.1','k=0.3','k=0.5','k=0.7'}, 'Interpreter','Latex', 'FontName', 'Times New Roman', 'FontSize',12)
+
+
+
