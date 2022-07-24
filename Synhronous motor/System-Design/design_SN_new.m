@@ -6,24 +6,23 @@ Field_current= 7; % A;
 
 %%
 clc;
-k=0.7;
+k=0.43;
 Vdc=100; % V (dc)
-G_inv=0.45;
+G_inv=0.40;
 Vin=G_inv*Vdc; %V  (rms) 
-f=80e3; %Hz
+f=50e3; %Hz
 w=2*pi*f; %rad/sec
 % Calculation Series-compensated paralel DC BUS
 R_L= 1.2; %% single module R_L
-Vout=8.4; %V (rms)
+Vout=7.7; %V (rms)
 % Vout=15; %V (rms)
 
 Vrx=Vout*2*sqrt(2)/pi; %V (rms)
 Rrx=R_L*8/pi/pi;
-
 n=Vin/Vrx;
 
 LpdivideLs=(n/k)^2;
-Q=2.5;
+Q=2.75;
 Ls=Q*Rrx/w;
 Lp=LpdivideLs*Ls;
 Lr=(1-k^2)*Lp;
