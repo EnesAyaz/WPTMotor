@@ -62,16 +62,21 @@ hold on;
 % plot(time_array,SC-2,'Linewidth',3,'Color','m')
 
 
+
 Tfinalx=0.00675;
 Tfinalx=0.01;
 xlimH= Tfinalx+1/fsw;
 xlim([Tfinalx xlimH])
 ylim([-0.5 3])
 
+a1=integral(SA,-pi,pi)
+
 hold on; 
 plot(time_array,2+(sin(2*pi*fsw*time_array)/2),'Linewidth',2,'Color','r','LineStyle','--')
 hold on;
 plot(time_array,0.5+(sin(2*pi*fsw*time_array)/2),'Linewidth',2,'Color','b','LineStyle','--')
+
+
 
 % xticklabels({'Ts','','Ts'})
 

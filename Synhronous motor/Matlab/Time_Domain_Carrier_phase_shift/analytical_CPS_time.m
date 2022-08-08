@@ -4,7 +4,7 @@ tic;
 %% Time array
 ma = 0.6;
 fout = 50; % Hz
-fsw = 100000; % Hz
+fsw = 1600; % Hz
 Tstep = (1/fsw)/800; % s
 Ts = Tstep; % s
 Tfinal =1/fout ; % s
@@ -69,15 +69,20 @@ cf.Color= [cf.Color 1]
 box(axes1,'on');
 hold(axes1,'off');
 % Set the remaining axes properties
-set(axes1,'XTick',[0 Tfinal/2 Tfinal],'XTickLabel',{'0','\pi','2\pi'},'FontName','TimesNewRoman','FontSize',16);
-set(axes1,'YTick',[-1 -ma 0 ma 1],'YTickLabel',{'-1','-ma','0','ma','1'},'FontName','TimesNewRoman','FontSize',16);
+set(axes1,'XTick',[0 Tfinal/2 Tfinal],'XTickLabel',{'0','180','360'},'FontName','TimesNewRoman','FontSize',20);
+set(axes1,'YTick',[-1 -ma 0 ma 1],'YTickLabel',{'-1','-ma','0','ma','1'},'FontName','TimesNewRoman','FontSize',20);
 
 
-legend1 = legend(axes1,'show',{'Ref_A','Ref_B','Ref_C','Carrier'},'FontName','TimesNewRoman','FontSize',12);
+legend1 = legend(axes1,'show',{'$Ref_A$','$Ref_B$','$Ref_C$','Carrier'},'FontName','TimesNewRoman','FontSize',16);
 set(legend1,...
     'Location','Best',...
     'EdgeColor','none',...
-    'Color','white');
+    'Color','white','interpreter','Latex');
+
+xlabel('Fundamental Phase ($^o$)', 'interpreter','latex','FontName','Times New Roman',...
+    'FontSize',20)
+ylabel('Normalized References','interpreter','latex','FontName','Times New Roman',...
+    'FontSize',20)
 
 % figure();
 % plot(time_array,SA+1.5,'Linewidth',1,'Color','r')
@@ -104,15 +109,20 @@ ylim([-2 3])
 box(axes1,'on');
 hold(axes1,'off');
 % Set the remaining axes properties
-set(axes1,'XTick',[0 Tfinal/2 Tfinal],'XTickLabel',{'0','\pi','2\pi'},'FontName','TimesNewRoman','FontSize',16);
-set(axes1,'YTick',[-1.5 -0.5 0 1 1.5 2.5],'YTickLabel',{'L','H','L','H','L','H'},'FontName','TimesNewRoman','FontSize',16);
+set(axes1,'XTick',[0 Tfinal/2 Tfinal],'XTickLabel',{'0','180','360'},'FontName','TimesNewRoman','FontSize',20);
+set(axes1,'YTick',[-1.5 -0.5 0 1 1.5 2.5],'YTickLabel',{'L','H','L','H','L','H'},'FontName','TimesNewRoman','FontSize',20);
 
 
-legend1 = legend(axes1,'show',{'S_A','S_B','S_C'},'FontName','TimesNewRoman','FontSize',12);
+legend1 = legend(axes1,'show',{'$S_A$','$S_B$','$S_C$'},'FontName','TimesNewRoman','FontSize',16);
 set(legend1,...
     'Location','Best',...
     'EdgeColor','none',...
-    'Color','white');
+    'Color','white','interpreter','Latex');
+
+xlabel('Fundamental Phase ($^o$)', 'interpreter','latex','FontName','Times New Roman',...
+    'FontSize',20)
+ylabel('PWM Signals','interpreter','latex','FontName','Times New Roman',...
+    'FontSize',20)
 
 %%
 figure1=figure();
@@ -128,7 +138,7 @@ plot(time_array,VrefC,'Linewidth',3,'Color','m')
 hold on;
 plot(time_array,VcarrierA,'Linewidth',2,'Color','k')
 
-Tfinalx=0.00675;
+Tfinalx=0.005
 Tfinalx=0.01;
 xlimH= Tfinalx+1/fsw;
 xlim([Tfinalx xlimH])
@@ -143,12 +153,12 @@ set(axes1,'XTick',[Tfinalx xlimH],'XTickLabel',{'0','Ts'},'FontName','TimesNewRo
 set(axes1,'YTick',[-1 0 1]);
 
 
-legend1 = legend(axes1,'show',{'Ref_A','Ref_B','Ref_C','Carrier'},'FontName','TimesNewRoman','FontSize',16);
+legend1 = legend(axes1,'show',{'$Ref_A$','$Ref_B$','$Ref_C$','Carrier'},'FontName','TimesNewRoman','FontSize',20);
 set(legend1,...
     'Position',[0.704191336922702 0.57341270550849 0.196428568288684 0.251190469094685],...
     'EdgeColor','none',...
-    'Color','none');
-%%
+    'Color','none','interpreter','Latex');
+
 figure1=figure();
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
@@ -169,13 +179,13 @@ box(axes1,'on');
 hold(axes1,'off');
 % Set the remaining axes properties
 set(axes1,'XTick',[Tfinalx xlimH],'XTickLabel',{'0','Ts'},'FontName','TimesNewRoman','FontSize',20);
-set(axes1,'YTick',[-1.5 -0.5 0 1 1.5 2.5],'YTickLabel',{'L','H','L','H','L','H'},'FontName','TimesNewRoman','FontSize',16);
+set(axes1,'YTick',[-1.5 -0.5 0 1 1.5 2.5],'YTickLabel',{'L','H','L','H','L','H'},'FontName','TimesNewRoman','FontSize',20);
 
 
 
-legend1 = legend(axes1,'show',{'S_A','S_B','S_C'},'FontName','TimesNewRoman','FontSize',16);
+legend1 = legend(axes1,'show',{'$S_A$','$S_B$','$S_C$'},'FontName','TimesNewRoman','FontSize',20);
 set(legend1,...
     'Location','Best',...
     'EdgeColor','none',...
-    'Color','none');
+    'Color','none','interpreter','Latex');
 
