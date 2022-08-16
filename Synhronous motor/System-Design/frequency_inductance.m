@@ -5,7 +5,7 @@ phase_current= 10; % A
 Field_current= 7; % A;
 
 %%
-for Q=1:0.5:3
+for Q=4:2.5:5
 L=[];
 L2=[];
 f1=[];
@@ -55,3 +55,6 @@ yyaxis right
 plot(f1/1e3,L2)
 
 end
+
+
+

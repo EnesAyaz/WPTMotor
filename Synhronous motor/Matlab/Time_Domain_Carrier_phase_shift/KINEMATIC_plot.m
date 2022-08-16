@@ -1,5 +1,5 @@
 mx="0";
-m=0.95;
+m=0.9;
 
 theta_f1=0:0.001:2*pi;
 dead_time=0.0;
@@ -23,16 +23,18 @@ D3(D3<dead_time)=dead_time;
 D3(D3>(1-dead_time))=1-dead_time;
 D3=(1+m*sin(theta_f3)+(n/6)*sawtooth(3*theta_f3+pi/2,1/2))/2;
 S3=(2/pi)*sin(pi*(D3));
-figure();
-plot(theta_f1*180/pi,S1);
-hold on;
-plot(theta_f1*180/pi,2*S2);
-hold on;
-plot(theta_f1*180/pi,S3);
+% figure();
+% plot(theta_f1*180/pi,S1);
+% hold on;
+% plot(theta_f1*180/pi,2*S2);
+% hold on;
+% plot(theta_f1*180/pi,S3);
 
 %%
 i=length(S1);
-phi=65;
+
+phi=165;
+% phi=165;
 ix=int32(i*phi/360);
 A=S1(ix);
 B= 2*S2(ix);
@@ -80,19 +82,48 @@ YE_2 = real(A*sin(alpha)+B*sin(alpha+beta));
 XE_3 = real(A*cos(alpha) + B*cos(alpha+beta) + C*cos(alpha+beta+gamma));
 YE_3 = real(A*sin(alpha) + B*sin(alpha+beta) + C*sin(alpha+beta+gamma));
 
-figure1=figure(1);
+% figure1=figure(1);
+% axes1 = axes('Parent',figure1);
+% hold(axes1,'on');
+% hold on;
+% plot([0 XE_1], [0 YE_1],'r');
+% plot([XE_1 XE_2], [YE_1 YE_2],'g');
+% plot([XE_2 XE_3], [YE_2 YE_3],'b');
+% plot(XE_3,YE_3,'o','MarkerSize',12,'MarkerFaceColor','m')
+% sqrt(XE_3^2+YE_3^2)
+
+
+figure1 = figure('Position', [0 0 400 300]);
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
+%%
+p1 = [0 0];                         % First Point
+p2 = [XE_1 YE_1];                         % Second Point
+dp = p2-p1;                         % Difference
+h=quiver(p1(1),p1(2),dp(1),dp(2),0,'Color','r','LineWidth',2)
+set(h,'MaxHeadSize',0.3,'AutoScaleFactor',1);
 hold on;
-plot([0 XE_1], [0 YE_1],'r');
-plot([XE_1 XE_2], [YE_1 YE_2],'g');
-plot([XE_2 XE_3], [YE_2 YE_3],'b');
-plot(XE_3,YE_3,'o','MarkerSize',12,'MarkerFaceColor','m')
-sqrt(XE_3^2+YE_3^2)
+p1 = [XE_1 YE_1];                           % First Point
+p2 = [XE_2 YE_2];                         % Second Point
+dp = p2-p1;        % Difference
 
+h=quiver(p1(1),p1(2),dp(1),dp(2),0,'Color','b','LineWidth',2)
+set(h,'MaxHeadSize',0.3,'AutoScaleFactor',1);
+hold on;
+p1 = [XE_2 YE_2];                           % First Point
+p2 = [XE_3 YE_3];                         % Second Point
+dp = p2-p1;                         % Difference
+h=quiver(p1(1),p1(2),dp(1),dp(2),0,'Color','m','LineWidth',2)
+hold on;
+set(h,'MaxHeadSize',100,'AutoScaleFactor',1);
+plot([0 XE_3],[0 YE_3],'k--','LineWidth',2)
 
-
-
+% hold on;
+% p1 = [0 0];                           % First Point
+% p2 = [XE_3 YE_3];                         % Second Point
+% dp = p2-p1;                         % Difference
+% quiver(p1(1),p1(2),dp(1),dp(2),0,'Color','k','LineWidth',2,'LineStyle','--')
+axis equal
 
 %%
 y=0;
@@ -103,10 +134,10 @@ x=A;
 
 ang=0:0.01:2*pi; 
 
-xp=r*cos(ang);
-yp=r*sin(ang);
+xp1=r*cos(ang);
+yp1=r*sin(ang);
 
-plot(x+xp,y+yp,'k');
+plot(x+xp1,y+yp1,'k');
 
 
 r=abs(B+C);
@@ -114,11 +145,28 @@ r=abs(B+C);
 x=A;
 
 
-xp=r*cos(ang);
-yp=r*sin(ang);
-plot(x+xp,y+yp,'k');
+xp2=r*cos(ang);
+yp2=r*sin(ang);
+plot(x+xp2,y+yp2,'k');
+
+% fill([x+xp1 flip(x+xp2)],[yp1 flip(yp2)],'Color','g')
+
+patch('Parent',axes1, 'XData', [x+xp1 flip(x+xp2)],'YData', [yp1 flip(yp2)],'FaceColor',[0 1 0],...
+    'EdgeColor','none','FaceAlpha',0.1)
+
+box(axes1,'on');
+hold(axes1,'off');
 
 
+grid on;
+xlim([A-B-C B+C+A])
+ylim([-B-C B+C])
 
+ylabel({'$\hat{S}_{{ABC}_{f_s}} sin(\phi)$'},'interpreter','latex','FontName','Times New Roman',...
+    'FontSize',14);
+
+% Create xlabel
+xlabel({'$\hat{S}_{{ABC}_{f_s}} cos(\phi)$'},'interpreter','latex','FontName','Times New Roman',...
+    'FontSize',13);
 
 
