@@ -6,7 +6,7 @@ Field_current= 7; % A;
 
 %%
 clc;
-k=0.55;
+k=0.485;
 Vdc=100; % V (dc)
 G_inv=0.40;
 Vin=G_inv*Vdc; %V  (rms) 
@@ -22,17 +22,15 @@ Rrx=R_L*8/pi/pi;
 n=Vin/Vrx;
 
 LpdivideLs=(n/k)^2;
-Q=3.3;
+Q=2.5;
 Ls=Q*Rrx/w;
 Lp=LpdivideLs*Ls;
 Lr=(1-k^2)*Lp;
 Cr=1/(w^2*Lr);
 M=k*sqrt(Lp*Ls);
-Lp*1e6
-Ls*1e6
 Cr*1e9
-M*1e6
-
+[Lp*1e6, Ls*1e6 ,M*1e6]
+[Vrx,Rrx,n]
 % Lr=(1-k^2)*Lp;
 % 
 % Cr=1/(w^2*Lr);
