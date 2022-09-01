@@ -143,9 +143,11 @@ hold(axes1,'on');
 % plot(time_array,SC-SA,'color',[0.5 0 0.5],'LineWidth',0.5)
 % plot(time_array,(Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0 0 0.5],'LineWidth',0.5)
 % plot(time_array,(VrefA+Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0.5 0 0.5],'LineWidth',0.5)
-plot(time_array,VrefB-(Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0 0.5 0],'LineWidth',0.5)
+% plot(time_array,VrefB-(Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0 0.5 0],'LineWidth',0.5)
 % plot(time_array,(VrefA+Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0.5 0 0.5],'LineWidth',0.5)
-
+% yline(5,'color',[0 0.5 0],'LineWidth',2)
+plot(time_array,10+0.1*(Vfsw_A-Vfsw_B+VfswSL_A-VfswSL_B+VfswSH_A-VfswSH_B),'color',[0.7 0 0],'LineWidth',0.5)
+ylim([0 12])
 box(axes1,'on');
 hold(axes1,'off');
 % Set the remaining axes properties

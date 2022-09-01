@@ -27,11 +27,11 @@ figure1=figure();
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 
-[c1,h1]=contourf(X,Y,mag_fsw_carrier/sqrt(2),'LevelStep',0.1);
+% [c1,h1]=contourf(X,Y,mag_fsw_carrier/sqrt(2),'LevelStep',0.1);
 % [c1,h1]=contourf(X,Y,mag_fund_carrier/sqrt(2),'LevelStep',0.1);
 % [c1,h1]=contourf(X,Y,mag_side1_carrier/sqrt(2),'LevelStep',0.1);
 % [c1,h1]=contourf(X,Y,mag_side2_carrier/sqrt(2),'LevelStep',0.1);
-% [c1,h1]=contourf(X,Y,mag/sqrt(2),'LevelStep',0.1);
+[c1,h1]=contourf(X,Y,mag/sqrt(2),'LevelStep',0.1);
 clabel(c1,h1);
 colormap()
 caxis([0 1])
