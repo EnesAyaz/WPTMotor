@@ -5,7 +5,7 @@ phase_current= 10; % A
 Field_current= 7; % A;
 
 %%
-for Q=4:2.5:5
+for Q=0.5:0.5:2
 L=[];
 L2=[];
 f1=[];
@@ -55,6 +55,32 @@ yyaxis right
 plot(f1/1e3,L2)
 
 end
+
+%%
+for Q=0.5:0.5:5
+L=[];
+f1=[];
+for f=50e3:1e3:100e3
+R_L= 1.2; %% single module R_L
+Rrx=R_L*8/pi/pi;
+w=2*pi*f;
+Ls=Q*Rrx/w;
+
+L=[L Ls*1e6];
+f1=[f1 f];
+
+end
+% Lr=(1-k^2)*Lp;
+% 
+% Cr=1/(w^2*Lr);
+figure(1);
+
+plot(f1/1e3,L,'k')
+hold on;
+
+end
+
+
 
 
 

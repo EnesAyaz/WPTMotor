@@ -1,11 +1,13 @@
+
+
 file_location="G:\My Drive\WPT-MOTOR\Test-Result\2021.11.29\";
 name="C3Im_0.8m_20hz_only_motor00000.dat";
-
+%%
 dataLines=[1 inf];
 filename=strcat(file_location,name);
 [time_onlymotor, data_onlymotor] = importfile(filename, dataLines);
 clear name filename
-
+%%
 figure1=figure();
 figure1.Position = [0 0 300 200];
 axes1 = axes('Parent',figure1);
@@ -41,11 +43,12 @@ annotation(figure1,'textbox',...
 %%
 file_location="G:\My Drive\WPT-MOTOR\Test-Result\2021.11.29\";
 name="C4Itx_0.8m_20hz_onlyWPT00001.dat";
-
+%%
 dataLines=[1 inf];
 filename=strcat(file_location,name);
 [time_onlymotor, data_onlyWPT] = importfile(filename, dataLines);
 clear name filename
+%%
 figure1=figure();
 figure1.Position = [0 0 300 200];
 axes1 = axes('Parent',figure1);
