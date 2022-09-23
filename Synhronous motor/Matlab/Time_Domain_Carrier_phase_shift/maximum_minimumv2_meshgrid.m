@@ -28,7 +28,7 @@ end
 
 [X Y]= meshgrid(theta_f1*180/pi,mx); 
 
-
+%%
 figure1 = figure('Position', [0 0 400 300]);
 colormap(cool)
 % axes1 = axes('Parent',figure1);
@@ -40,7 +40,7 @@ contour(X,Y,Smin);
 % mesh(X,Y,Smax);
 % hold on;
 
-
+%%
 
 figure2 = figure('Position', [0 0 400 300]);
 colormap(cool)

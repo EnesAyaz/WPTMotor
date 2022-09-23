@@ -1,7 +1,7 @@
 theta_f1=0:0.01:2*pi;
 dead_time=0.02;
 
-m=0;
+m=0.6;
 n=0;
 D1=(1+m*sin(theta_f1)+(n/6)*sawtooth(3*theta_f1+pi/2,1/2))/2;
 D1(D1<dead_time)=dead_time;
@@ -23,14 +23,14 @@ hold(axes1,'on');
 % hold on;
 % plot(theta_f1*180/pi,S2,'b')
 % hold on;
-plot(theta_f1*180/pi,abs(S1-S2),'b')
+plot(theta_f1*180/pi,abs(S1-S2),'color',[0 0 0.5])
 hold on;
-plot(theta_f1*180/pi,abs(S1+S2),'r')
+plot(theta_f1*180/pi,abs(S1+S2),'color',[0.5 0 0])
 
 x = min(abs(S1+S2))*ones(size(theta_f1));
 y=max(abs(S1-S2))*ones(size(theta_f1));
 
-patch('Parent',axes1, 'XData', [theta_f1*180/pi fliplr(theta_f1*180/pi)],'YData', [x fliplr(y)],'FaceColor',[1 0 1],...
+patch('Parent',axes1, 'XData', [theta_f1*180/pi fliplr(theta_f1*180/pi)],'YData', [x fliplr(y)],'FaceColor',[0.5 0 0.5],...
     'EdgeColor','none','FaceAlpha',0.1)
 
 box(axes1,'on');
@@ -51,12 +51,12 @@ set(legend1,...
     'EdgeColor','none',...
     'Color','white');
 
-ylabel({'$\hat {S_{AB}}_{f_s}$'},'interpreter','latex','FontName','Times New Roman',...
-    'FontSize',18);
+ylabel({'$\hat{S}_{{AB}_{f_s}}$'},'interpreter','latex','FontName','Times New Roman',...
+    'FontSize',20);
 
 % Create xlabel
 xlabel('Fundamental Phase ($^o$)','interpreter','latex','FontName','Times New Roman',...
-    'FontSize',15);
+    'FontSize',20);
 
 
 
