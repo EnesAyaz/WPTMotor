@@ -1,7 +1,7 @@
 CPS=0
 theta_f1=0:0.01:2*pi;
 dead_time=0.02;
-m=1;
+m=0.6;
 n=0;
 D1=(1+m*sin(theta_f1)+(n/6)*sawtooth(3*theta_f1+pi/2,1/2))/2;
 D1(D1<dead_time)=dead_time;
@@ -32,7 +32,7 @@ plot(theta_f1*180/pi,abs(S1+S2),'k')
 patch([theta_f1*180/pi fliplr(theta_f1*180/pi)], [abs(S1-S2) fliplr(abs(S1+S2))], 'm')
 %%
 % lim_y=0.43;
-lim_y=0.41;
+lim_y=0.44;
 y=(S1.^2+S2.^2-lim_y^2)./(2.*S1.*S2);
 % y=(S3.^2+S2.^2-lim_y^2)./(2.*S3.*S2);
 y(y>1)=1;
@@ -43,12 +43,12 @@ CPS=acos(y);
 figure();
 plot(theta_f1*180/pi,CPS*180/pi)
 %%
-S_updated=sqrt(S1.^2+S2.^2-2*S1.*S2.*cos(CPS));
+S_updated=sqrt(S1.^2+S2.^2-2*S1.*S2.*cos(pi-CPS));
 % S_updated=sqrt(S3.^2+S2.^2-2*S3.*S2.*cos(CPS));
 figure();
 plot(theta_f1*180/pi,S_updated,'k');
 hold on;
-ylim([0 0.6])
+% ylim([0 0.6])
 mean(S_updated)
 
 % theta_f1

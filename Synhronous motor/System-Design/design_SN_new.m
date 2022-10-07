@@ -15,7 +15,7 @@ w=2*pi*f; %rad/sec
 % Calculation Series-compensated paralel DC BUS
 R_L= 1.2; %% single module R_L
 Vout=6; %V (rms)
-% Vout=15; %V (rms)
+% Vout=200; %V (rms)
 
 Vrx=Vout*2*sqrt(2)/pi; %V (rms)
 Rrx=R_L*8/pi/pi;
