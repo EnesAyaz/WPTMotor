@@ -48,3 +48,14 @@ xlim([0 25])
 ylim([0 0.75])
 % 0.51
 %%
+
+figure();
+time=0:1e-7:0.01;
+sinx_t=zeros(size(time));
+for i=1:length(Pmag)
+sinx=Pmag(i)*cos(2*pi*f_ma(i)*time+Pangle(i));
+% sinx=Pcomplex(i)*cos(2*pi*f_ma(i)*time);
+sinx_t=sinx_t+sinx;
+end
+plot(time,sinx_t)
+

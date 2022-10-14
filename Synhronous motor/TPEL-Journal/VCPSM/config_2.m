@@ -1,7 +1,7 @@
 theta_f1=0:0.001:2*pi;
 dead_time=0.0;
 
-m=0.35;
+m=0.97;
 n=0;
 D1=(1+m*sin(theta_f1)+(n/6)*sawtooth(3*theta_f1+pi/2,1/2))/2;
 D1(D1<dead_time)=dead_time;
