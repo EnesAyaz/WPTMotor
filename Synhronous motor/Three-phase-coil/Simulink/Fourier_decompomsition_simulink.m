@@ -3,6 +3,7 @@ SB=IABC.signals(2).values;
 SC=IABC.signals(3).values;  
 time=IABC.time;
 
+
 I=SA+SB-SC;
 
 % data=CA.signals.values;

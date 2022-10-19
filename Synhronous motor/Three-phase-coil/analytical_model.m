@@ -1,5 +1,5 @@
-
-m=0.75;
+close all;
+m=1;
 
 theta_f1=0:0.001:2*pi;
 n=0;
@@ -14,13 +14,13 @@ theta_f3=theta_f1+2*pi/3;
 D3=(1+m*sin(theta_f3)+(n/6)*sawtooth(3*theta_f3+pi/2,1/2))/2;
 S3=(2/pi)*sin(pi*(D3));
 
-% figure();
-% plot(theta_f1*180/pi,S1);
-% hold on;
-% plot(theta_f1*180/pi,S2);
-% hold on;
-% plot(theta_f1*180/pi,S3);
-
+figure();
+plot(theta_f1*180/pi,S1);
+hold on;
+plot(theta_f1*180/pi,S2);
+hold on;
+plot(theta_f1*180/pi,S3);
+max((+S1+S2)-S3)
 % figure();
 % plot(theta_f1*180/pi,S1-abs(2*S2-S3),'r');
 % hold on;
@@ -30,7 +30,7 @@ S3=(2/pi)*sin(pi*(D3));
 % yline(0,'LineWidth',5,'Color','k')
 
 
-
+%%
 theta_x=[];
 alpha_x=[];
 beta_x=[];
@@ -39,7 +39,7 @@ for ix=1:length(S1)
 A=S1(ix);
 B= S2(ix);
 C=S3(ix);
-D=0;
+D=0.95;
 
 if B-C ~= 0
     if D >= A-abs(B-C) && D <= A+abs(B-C)
@@ -68,10 +68,14 @@ beta_x=[beta_x, beta];
 end
 
 figure();
-% plot(theta_f1*180/pi,theta_x*180/pi);
+plot(theta_f1*180/pi,theta_x*180/pi);
+hold on;
 plot(theta_f1*180/pi,alpha_x*180/pi,'Color','r','LineStyle','-');
 hold on;
 plot(theta_f1*180/pi,beta_x*180/pi,'Color','b','LineStyle','--');
+
+figure();
+plot(isnan(alpha_x))
 
 %%
 
