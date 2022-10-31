@@ -1,5 +1,5 @@
 close all;
-m=1;
+m=1;s
 
 theta_f1=0:0.001:2*pi;
 n=0;
