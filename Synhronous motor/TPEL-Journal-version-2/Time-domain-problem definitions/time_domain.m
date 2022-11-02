@@ -10,9 +10,9 @@ VrefN_t=[];
 
 rms_sinxt= [];
 
-phase_shift=[46 48 53.4 62 74 ];
-
-phase_shift=[59 62 69 86 150 ];
+% phase_shift=[46 48 53.4 62 74 ];
+% 
+% phase_shift=[59 62 69 86 150 ];
 
 phase_shift=[41 43 48 53 50 ];
 % phase_shift=[0 0 0 0 0];
@@ -135,9 +135,9 @@ axes1 = axes('Parent',figure1);
 hold(axes1,'on');
 
 
-plot(time_t,VAB,'Color',[0.5 0 0],'LineWidth',1);
+plot(time_t,VAB,'Color',[0 0 0.5],'LineWidth',0.5);
 hold on; 
-plot(time_t,sinx_tt,'Color',[0 0 0.5],'LineWidth',1);
+plot(time_t,sinx_tt,'Color',[0 0.6 0.6],'LineWidth',1);
 
 
 hold(axes1,'off');

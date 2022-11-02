@@ -10,8 +10,11 @@ VrefN_t=[];
 
 rms_sinxt= [];
 
-phase_shift=[40 41 53.6 62 74 ];
+phase_shift=[46 48 53.4 62 74 ];
 
+phase_shift=[59 62 69 86 150 ];
+
+phase_shift=[41 43 48 53 50 ];
 % phase_shift=[0 0 0 0 0];
 j=0;
 for ma=0:0.25:1

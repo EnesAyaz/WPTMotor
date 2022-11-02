@@ -34,8 +34,8 @@ plot(ma,y1,'Color',[0 0 1],'LineWidth',4)
 patch('Parent',axes1, 'XData', [ma fliplr(ma)],'YData', [x1 fliplr(y1)],'FaceColor',[0 0.5 0.5],...
     'EdgeColor','none','FaceAlpha',0.3)
 hold on;
-patch('XData',[ma fliplr(ma)],'YData', [x1 max(1.4)*ones(size(x1))],'FaceColor',[0.6 0 0],'EdgeColor','none','FaceAlpha',1')
-patch('XData',[ma fliplr(ma)],'YData', [y1 min(0)*ones(size(x1))],'FaceColor',[0.6 0 0],'EdgeColor','none','FaceAlpha',1')
+patch('XData',[ma fliplr(ma)],'YData', [x1 max(1.4)*ones(size(x1))],'FaceColor',[0.6 0 0.6],'EdgeColor','none','FaceAlpha',1')
+patch('XData',[ma fliplr(ma)],'YData', [y1 min(0)*ones(size(x1))],'FaceColor',[0.6 0 0.6],'EdgeColor','none','FaceAlpha',1')
 
 
 box(axes1,'on');
